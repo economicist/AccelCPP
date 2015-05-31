@@ -5,6 +5,7 @@
 #include "Student_info.h"
 
 using std::domain_error;
+using std::list;
 using std::vector;
 
 double grade(double midterm, double final, double homework) {

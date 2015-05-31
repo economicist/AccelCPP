@@ -1,4 +1,5 @@
 #include "Student_info.h"
+#include "grade.h"
 
 using std::istream;
 using std::vector;
@@ -26,4 +27,20 @@ istream& read_hw(istream& in, vector<double>& hw) {
 		in.clear();
 	}
 	return in;
+}
+
+vector<Student_info> extract_fails(vector<Student_info>& students) {
+	vector<Student_info> fail;
+	vector<Student_info>::iterator iter = students.begin();
+	
+	// invariant: elements [0, i) of students represent passing grades
+	while (iter != students.end()) {
+		if (fgrade(*iter)) {
+			fail.push_back(*iter);
+			iter = students.erase(iter);
+		}
+		else
+			++iter;
+	}
+	return fail;
 }

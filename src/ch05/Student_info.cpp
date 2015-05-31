@@ -1,6 +1,8 @@
 #include "Student_info.h"
+#include "grade.h"
 
 using std::istream;
+using std::list;
 using std::vector;
 
 bool compare(const Student_info& x, const Student_info& y) {
@@ -28,18 +30,18 @@ istream& read_hw(istream& in, vector<double>& hw) {
 	return in;
 }
 
-vector<Student_info> extract_fails(vector<Student_info>& students) {
-	vector<Student_info> fail;
-	vector<Student_info>::size_type i = 0;
+list<Student_info> extract_fails(list<Student_info>& students) {
+	list<Student_info> fail;
+	list<Student_info>::iterator iter = students.begin();
 	
 	// invariant: elements [0, i) of students represent passing grades
-	while (i != students.size()) {}
-		if (fgrade(students[i])) {
-			fail.push_back(students[i]);
-			students.erase(students.begin() + i);
+	while (iter != students.end()) {
+		if (fgrade(*iter)) {
+			fail.push_back(*iter);
+			iter = students.erase(iter);
 		}
 		else
-			++i;
+			++iter;
 	}
 	return fail;
 }
