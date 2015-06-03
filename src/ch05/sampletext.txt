@@ -1,0 +1,8 @@
+This program needs to read the input an entire line at a time. Fortunately, the
+string library provides what we need in the getline function, which reads input
+until it reaches the end of the line. The getline function takes two arguments.
+The first is the istream from which to read; the second is a reference to the
+string into which to store what is read. As usual, the getline function returns
+a reference to the istream from which we read, so that we can test that istream
+in a condition. If we hit end-of-file or encounter invalid input, then the
+return from getline will indicate failure and we'll break out of the while.
