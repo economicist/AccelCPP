@@ -1,5 +1,6 @@
 #include "Student_info.h"
 #include "grade.h"
+#include <iostream>
 
 using std::istream;
 using std::list;
@@ -47,14 +48,13 @@ gradebook extract_fails(gradebook& students) {
 	gradebook fail;
 	gradebook::iterator iter = students.begin();
 	
-	// invariant: elements [0, i) of students represent passing grades
 	while (iter != students.end()) {
 		if (fgrade(*iter)) {
 			fail.push_back(*iter);
 			iter = students.erase(iter);
-		}
-		else
+		} else {
 			++iter;
+		}
 	}
 	return fail;
 }
