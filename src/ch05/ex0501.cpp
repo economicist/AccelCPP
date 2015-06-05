@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "kwic.h"
+#include "split.h"
 
 using std::cout;
 using std::endl;
@@ -20,15 +21,19 @@ int main() {
 	poem.push_back("how neatly spreads his claws");
 	poem.push_back("and welcomes little fishes in");
 	poem.push_back("with gently smiling jaws");
-	
-	vector<string> rot = rotations(s);
-	for (vector<string>::iterator line = rot.begin(); line != rot.end(); ++line)
-		cout << *line << endl;
-	cout << endl;
 
-	sort(rot.begin(), rot.end());
-	for (vector<string>::iterator line = rot.begin(); line != rot.end(); ++line)
-		cout << *line << endl;
-	
+	Phrase_pair_collection ppc;
+	for (vector<string>::iterator phrase = poem.begin(); phrase != poem.end(); ++phrase)
+		ppc = append(ppc, phraseRotations(*phrase));
+
+	sort(ppc.pairs.begin(), ppc.pairs.end(), compare);
+
+	for (vector<Phrase_pair>::iterator pair = ppc.pairs.begin(); pair != ppc.pairs.end(); ++ pair) {
+		string str_left = vecstr2string((*pair).left);
+		string str_right = vecstr2string((*pair).right);
+		cout << string(ppc.lWidth - str_left.size(), ' ') + str_left;
+		cout << "     " << str_right << endl;
+	}
+
 	return 0;	
 }

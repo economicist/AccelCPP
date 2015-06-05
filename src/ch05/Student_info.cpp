@@ -4,9 +4,22 @@
 using std::istream;
 using std::list;
 using std::vector;
+using std::sort;
 
 bool compare(const Student_info& x, const Student_info& y) {
 	return x.name < y.name;
+}
+
+list<Student_info> sortByName(list<Student_info>& s) {
+	list<Student_info> ret = s;
+	ret.sort(compare);
+	return ret;
+}
+
+vector<Student_info> sortByName(vector<Student_info>& s) {
+	vector<Student_info> ret = s;
+	sort(ret.begin(), ret.end(), compare);
+	return ret;
 }
 
 istream& read(istream& is, Student_info& s) {
@@ -30,9 +43,9 @@ istream& read_hw(istream& in, vector<double>& hw) {
 	return in;
 }
 
-list<Student_info> extract_fails(list<Student_info>& students) {
-	list<Student_info> fail;
-	list<Student_info>::iterator iter = students.begin();
+gradebook extract_fails(gradebook& students) {
+	gradebook fail;
+	gradebook::iterator iter = students.begin();
 	
 	// invariant: elements [0, i) of students represent passing grades
 	while (iter != students.end()) {
