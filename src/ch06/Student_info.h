@@ -6,6 +6,7 @@
 #include <vector>		// std::string
 #include <string>		// std::vector
 #include <algorithm>	// find()
+#include "grade.h"
 
 struct Student_info {
 	std::string name;

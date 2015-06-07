@@ -1,5 +1,4 @@
 #include "Student_info.h"
-#include "grade.h"
 
 using std::istream;
 using std::list;
