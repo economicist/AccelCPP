@@ -1,12 +1,12 @@
 #ifndef GUARD_Student_info_h
 #define GUARD_Student_info_h
 
-#include <iostream>
-#include <list>
-#include <vector>		// std::string
-#include <string>		// std::vector
-#include <algorithm>	// find()
-#include "grade.h"
+#include <iostream>		// std::istream
+#include <list>			// std::list
+#include <vector>		// std::vector
+#include <string>		// std::string
+#include <algorithm>	// find(), sort(), remove_if(), remove_copy_if()
+#include "grade.h"		// grade(), fgrade(), pgrade()
 
 struct Student_info {
 	std::string name;

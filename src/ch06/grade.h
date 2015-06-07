@@ -15,5 +15,6 @@ double grade_aux(const Student_info&);
 double average_grade(const Student_info&);
 double optimistic_median(const Student_info&);
 bool fgrade(const Student_info&);
+bool pgrade(const Student_info&);
 
 #endif
