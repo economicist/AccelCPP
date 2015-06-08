@@ -21,6 +21,6 @@ std::list<Student_info> sortByName(std::list<Student_info>&);
 std::vector<Student_info> sortByName(std::vector<Student_info>&);
 std::istream& read(std::istream&, Student_info&);
 std::istream& read_hw(std::istream&, std::vector<double>&);
-gradebook extract_fails(gradebook&);
+gradebook extract(gradebook&, bool criterion(const Student_info&));
 
 #endif

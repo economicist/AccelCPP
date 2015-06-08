@@ -6,16 +6,15 @@ using std::cin;
 using std::endl;
 
 int main() {
-	vector<Student_info> did, didnt;
+	gradebook did;
 	Student_info student;
 
 	// read all records, separating based on whether all homework was done
 	while (read(cin, student)) {
-		if (did_all_hw(student))
-			did.push_back(student);
-		else
-			didnt.push_back(student);
+		did.push_back(student);
 	}
+
+	gradebook didnt = extract(did, did_all_hw);
 
 	// check that both groups contain data
 	if (did.empty()) {
@@ -28,10 +27,10 @@ int main() {
 	}
 
 	// do the analyses
-	write_analysis(cout, "median", median_analysis, did, didnt);
-	write_analysis(cout, "average", average_analysis, did, didnt);
+	write_analysis(cout, "median", grade_aux, did, didnt);
+	write_analysis(cout, "average", average_grade, did, didnt);
 	write_analysis(cout, "median of homework turned in",
-					optimistic_median_analysis, did, didnt);
+					optimistic_median, did, didnt);
 
 	return 0;
 }
