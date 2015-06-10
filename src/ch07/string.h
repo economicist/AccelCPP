@@ -8,8 +8,8 @@
 
 bool space(char);
 bool not_space(char);
+bool contains_char(const std::string&, const char&);
 std::vector<std::string> split(const std::string&);
-std::string strip_end_punct(const std::string&);
 bool is_palindrome(const std::string&);
 std::vector<std::string> find_urls(const std::string&);
 std::string::const_iterator url_beg(std::string::const_iterator, std::string::const_iterator);

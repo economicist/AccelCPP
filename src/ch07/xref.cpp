@@ -6,11 +6,12 @@ using std::vector;
 using std::istream;
 
 // find all the lines that refer to each word in the input
+// default for find_words is split() as stated in xref.h
 map<string, vector<int> >
-		xref(istream& in, vector<string> find_words(const string&) = split) {
+		xref(istream& in, vector<string> find_words(const string&)) {
 	string line;
 	int line_number = 0;
-	map<string, vector<int> > ret;.
+	map<string, vector<int> > ret;
 	// each string is paired with an integer vector stating which line #s
 	//		each string is found in.
 

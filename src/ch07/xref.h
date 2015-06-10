@@ -8,6 +8,6 @@
 #include "string.h"		// split()
 
 std::map<std::string, std::vector<int> >
-	xref(std::istream& in, std::vector<std::string> find_words(const std::string&));
+	xref(std::istream& in, std::vector<std::string> find_words(const std::string&) = split);
 
 #endif
