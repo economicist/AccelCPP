@@ -63,7 +63,7 @@ void gen_aux(const Grammar& g, const string& word, vector<string>& ret) {
 int nrand(int n) {
 	if (n <= 0 || n > RAND_MAX)
 		throw domain_error("Argument to nrand is out of range");
-
+	srand(5 * time(0));
 	const int bucket_size = RAND_MAX / n;
 	int r;
 
