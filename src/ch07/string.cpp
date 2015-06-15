@@ -13,6 +13,11 @@ bool not_space(char c) {
 	return !isspace(c);
 }
 
+bool contains_char(const string& str, const char& c) {
+	bool found = find(str.begin(), str.end(), c) != str.end();
+	return found;
+}
+
 vector<string> split(const string& str) {
 	typedef string::const_iterator iter;
 	vector<string> ret;
@@ -28,21 +33,13 @@ vector<string> split(const string& str) {
 												// finds a space
 		
 		// copy the characters in [i, j) to ret
-		if (i != str.end())
-			ret.push_back(string(i, j));
+		if (i != str.end()) {
+			string out = string(i, j);
+			ret.push_back(out);
+		}
 		i = j;
 	}
 	return ret;
-}
-
-string strip_end_punct(const string& str) {
-	if (str == "")
-		return str;
-	string::const_iterator c = str.end();
-	while ( !isalnum( *(c-1) ) ) {
-		--c;
-	}
-	return string(str.begin(), c);
 }
 
 bool is_palindrome(const string& s) {

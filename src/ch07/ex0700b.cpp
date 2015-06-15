@@ -6,17 +6,20 @@ using std::vector;		using std::endl;
 
 int main() {
 	// call xref() using split() by default
-	map <string, vector<int> > ret = xref(cin);
+	map <string, vector<int> > ret = xref(cin, split);
 
 	// write the results
 	for (map<string, vector<int> >::const_iterator it = ret.begin();
 			it != ret.end(); ++it) {
 		// write the word
-		cout << (*it).first;
+		cout << "'" << (*it).first << "' occurs on line(s): ";
 		
 		vector<int>::const_iterator line_it = (*it).second.begin();
-		while (line_it != (*it).second.end())
-			cout << " " << *line_it;
+		cout << *line_it;
+		while (line_it != (*it).second.end()) {
+			cout << ", " << *line_it;
+			++line_it;
+		}
 
 		cout << endl;
 	}
